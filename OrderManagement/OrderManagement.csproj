@@ -130,10 +130,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="CustomFilter\CustomAdminAuthorizeAttribute.cs" />
+    <Compile Include="CustomFilter\CustomAuthorizeAttribute.cs" />
+    <Compile Include="CustomFilter\CustomUserAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionHelper\SessionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Theme\Admin\css\sb-admin-2.css" />
@@ -1832,6 +1836,9 @@
     <Content Include="Content\Theme\Registration\js\jquery.min.js" />
     <Content Include="Content\Theme\Registration\js\main.js" />
     <Content Include="Content\Theme\Registration\js\popper.js" />
+    <Content Include="Content\Theme\Registration\Uploads\Modi_photo242606898.jpg" />
+    <Content Include="Content\Theme\Registration\Uploads\pexels-goumbik-669619241105916.jpg" />
+    <Content Include="Content\Theme\Registration\Uploads\pexels-goumbik-669619241353390.jpg" />
     <Content Include="Content\Theme\User\css\sb-admin-2.css" />
     <Content Include="Content\Theme\User\css\sb-admin-2.min.css" />
     <Content Include="Content\Theme\User\img\undraw_posting_photo.svg" />
@@ -3984,9 +3991,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Registration.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Admin\AdminDashboard.cshtml" />
@@ -4009,6 +4013,10 @@
     <ProjectReference Include="..\OrderManagement_Model\OrderManagement_Model.csproj">
       <Project>{74304FA3-4DB7-4DF8-B877-12171536A829}</Project>
       <Name>OrderManagement_Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderManagement_Repository\OrderManagement_Repository.csproj">
+      <Project>{D068BE07-8896-4B03-913C-22A93FC5991D}</Project>
+      <Name>OrderManagement_Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

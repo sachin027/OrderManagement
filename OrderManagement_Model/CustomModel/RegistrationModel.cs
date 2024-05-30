@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace OrderManagement_Model.CustomModel
 {
@@ -46,8 +47,17 @@ namespace OrderManagement_Model.CustomModel
         [Required(ErrorMessage ="Gender Required")]
         public string gender { get; set; }
 
-        [Required(ErrorMessage ="Please upload photo")]
+
+
+        ///image
         public string profilePicture { get; set; }
+        [Required(ErrorMessage = "Please upload photo")]
+        public HttpPostedFileBase ImageFile { get; set; }
+
+
+        /// image end
+
+
         [Required(ErrorMessage ="Role must be selected")]
         public Nullable<int> role { get; set; }
 
@@ -61,10 +71,10 @@ namespace OrderManagement_Model.CustomModel
         public Nullable<int> City { get; set; }
 
         [Required(ErrorMessage ="DOB required")]
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Required(ErrorMessage = "at least one should be selected")]
-        public string Destination { get; set; }
+        public string[] Destination { get; set; }
 
         [Required]
         [StringLength(10)]
