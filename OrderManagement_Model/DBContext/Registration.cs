@@ -14,6 +14,12 @@ namespace OrderManagement_Model.DBContext
     
     public partial class Registration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Registration()
+        {
+            this.Orders = new HashSet<Orders>();
+        }
+    
         public int UserId { get; set; }
         public string Username { get; set; }
         public string FirstName { get; set; }
@@ -35,5 +41,7 @@ namespace OrderManagement_Model.DBContext
         public virtual country country1 { get; set; }
         public virtual state state1 { get; set; }
         public virtual Roles Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

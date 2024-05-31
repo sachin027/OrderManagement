@@ -32,5 +32,9 @@ namespace OrderManagement_Model.DBContext
         public virtual DbSet<Registration> Registration { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<state> state { get; set; }
+        public virtual DbSet<CouponCodeMaster> CouponCodeMaster { get; set; }
+        public virtual DbSet<ItemDetails> ItemDetails { get; set; }
+        public virtual DbSet<ItemMaster> ItemMaster { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
     }
 }

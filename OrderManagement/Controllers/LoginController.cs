@@ -33,7 +33,7 @@ namespace OrderManagement.Controllers
                     {
 
                         TempData["success"] = "Login successfully ";
-                        return RedirectToAction("AdminDashboard", "Admin");
+                        return RedirectToAction("CustomerDashboard", "Customer");
                     }
                 }                
                 else if(_Login.Email != null && _Login.Password != null && _Login.role == 2)
@@ -42,7 +42,7 @@ namespace OrderManagement.Controllers
                     if (IsValidUser)
                     {
                         TempData["success"] = "Login successfully ";
-                        return RedirectToAction("UserDashboard", "User");
+                        return RedirectToAction("CustomerDashboard", "Customer");
                     }
                 }
                  return View();
@@ -75,7 +75,7 @@ namespace OrderManagement.Controllers
                         {
                             ModelState.AddModelError("ImageFile", "Please upload a valid image file (JPEG, JPG, PNG.");
                         }
-                        int maxFileSize = 5 * 1024 ; // 5MB in bytes
+                        int maxFileSize = 5 * 1024 * 1024 ; // 5MB in bytes
                         if (Register.ImageFile.ContentLength > maxFileSize)
                         {
                             ModelState.AddModelError("ImageFile", "The image file size should not exceed 5MB.");
@@ -96,12 +96,12 @@ namespace OrderManagement.Controllers
                         ModelState.AddModelError("Email", "Email I'd already exist");
                         ModelState.AddModelError("Username", "Username already exist");
                         TempData["error"] = "Something went wrong ! ";
-                        return View();
+                        return View(Register);
                     }
                 }
                 else
                 {
-                    return View();
+                    return View(Register);
                 }
             }
             catch (Exception ex)

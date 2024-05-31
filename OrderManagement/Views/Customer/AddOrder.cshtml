@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "AddOrder";
+    Layout = "~/Views/Shared/_LayoutCustomerPage.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Add Order
+    </div>
+    <form method="">
+        <div class="card-body">
+            @*<h5 class="card-title">Add new order</h5>*@
+            <div class="form-group col-lg-4 mb-3">
+                <label for="exampleFormControlSelect1">Select Item</label>
+                <select class="form-control " name="ItemName" id="ItemId">
+                    <option value="" selected disabled>--Select Item--</option>
+
+                    @if (@ViewBag.ItemList != null)
+                    {
+                        foreach (var Item in ViewBag.ItemList)
+                        {
+                            <option value="@Item.ItemId">@Item.ItemName</option>
+}
+                    }
+                </select>
+            </div>            
+            <div class="form-group col-lg-4 mb-3">
+                <label for="exampleFormControlSelect1">Quantity</label>
+                <input type="number" name="Quantity" id="quantity" class="form-control" min="0"/>
+            </div>
+            <button type="button" class="btn btn-primary" id="addBUtton" >Add</button>
+        </div>
+    </form>
+</div>
+<div class="card">
+    <div class="card-header">
+        Orders
+    </div>
+    <table class="table" id="itemTable">
+        <thead>
+            <tr>
+                
+                <th scope="col">Sr .No</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody id="ItemTableBody">
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+    var itemListArray = [];
+    $('#addBUtton').on('click', function () {
+
+        var ItemId = $('#ItemId').val();
+        $.ajax({
+            url: '/Customer/AddOrderItem?itemId=' + ItemId,
+            Type: 'GET',
+            success: function (data) {
+                let itemName = data.ItemName;
+                let amount = data.ItemAmount;
+                let quantity = $('#quantity').val();
+                let TotalAmount = quantity * amount; // Calculating total amount
+
+                let itemObj = {
+                    itemName: itemName,
+                    quantity: quantity,
+                    amount: amount,
+                    TotalAmount: TotalAmount
+                };
+
+                itemListArray.push(itemObj);
+                ShowItemIntoTable(data);
+            }
+
+        })
+    });
+
+    function ShowItemIntoTable(data) {
+
+        let tbody = $("#ItemTableBody");
+        tbody.empty();
+
+
+        for (let i = 0; i < itemListArray.length; i++) {
+            let tr = document.createElement('tr');
+            tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${itemListArray[i].itemName}</td>
+                    <td>${itemListArray[i].quantity}</td>
+                    <td>${itemListArray[i].amount}</td> <!-- Changed to amount -->
+                    <td>${itemListArray[i].TotalAmount}</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger" id="${ItemId}" onclick="DeleteItem(${i})">Delete</button>
+                    </td>
+                `;
+            tbody.append(tr);
+        }
+        return tbody;
+    }
+    function DeleteItem(e) {
+        console.log(e);
+        itemListArray.splice(e, 1);
+        ShowItemIntoTable(itemListArray);
+        //$(e).closest('tr').remove();
+    }
+
+</script>

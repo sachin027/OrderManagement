@@ -18,6 +18,12 @@
         <AssociationConnector Association="practice_547Model.fk10" ManuallyRouted="false" />
         <AssociationConnector Association="practice_547Model.fk11" ManuallyRouted="false" />
         <AssociationConnector Association="practice_547Model.Fk9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="practice_547Model.CouponCodeMaster" Width="1.5" PointX="5.75" PointY="8.75" />
+        <EntityTypeShape EntityType="practice_547Model.ItemDetails" Width="1.5" PointX="12.375" PointY="3.625" />
+        <EntityTypeShape EntityType="practice_547Model.ItemMaster" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="practice_547Model.Orders" Width="1.5" PointX="10.125" PointY="3" />
+        <AssociationConnector Association="practice_547Model.FK__ItemDetai__Order__5EBF139D" />
+        <AssociationConnector Association="practice_547Model.FK__Orders__UserId__5812160E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

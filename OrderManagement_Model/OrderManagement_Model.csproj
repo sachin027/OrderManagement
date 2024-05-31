@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModel\ItemModel.cs" />
     <Compile Include="CustomModel\RegistrationModel.cs" />
     <Compile Include="CustomModel\StateModel.cs" />
     <Compile Include="DBContext\City.cs">
@@ -59,10 +60,19 @@
     <Compile Include="DBContext\country.cs">
       <DependentUpon>OrderManagement.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\CouponCodeMaster.cs">
+      <DependentUpon>OrderManagement.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\Destination.cs">
       <DependentUpon>OrderManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\hobbies.cs">
+      <DependentUpon>OrderManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\ItemDetails.cs">
+      <DependentUpon>OrderManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\ItemMaster.cs">
       <DependentUpon>OrderManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\OrderManagement.Context.cs">
@@ -79,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderManagement.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\Orders.cs">
+      <DependentUpon>OrderManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Registration.cs">
       <DependentUpon>OrderManagement.tt</DependentUpon>

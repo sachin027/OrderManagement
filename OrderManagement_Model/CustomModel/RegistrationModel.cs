@@ -27,7 +27,7 @@ namespace OrderManagement_Model.CustomModel
         public string LastName { get; set; }
 
         [Required(ErrorMessage ="Password Required")]
-        [RegularExpression(@"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,10}$" , ErrorMessage ="Must contain alphabets , numbers , special characters, capital letter")]
+        //[RegularExpression(@"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,10}$" , ErrorMessage ="Must contain alphabets , numbers , special characters, capital letter")]
         [MaxLength(10,ErrorMessage ="Maximum length should be 10")]
         [MinLength(8,ErrorMessage ="Mimimum length should be 8")]
         public string Password { get; set; }
