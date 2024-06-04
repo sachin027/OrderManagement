@@ -90,6 +90,9 @@
         let tbody = $("#ItemTableBody");
         tbody.empty();
 
+        let totolItem = 0;
+        let totolAmount = 0;
+        let totolFinalAmount = 0;
 
         for (let i = 0; i < itemListArray.length; i++) {
             let tr = document.createElement('tr');
@@ -104,8 +107,15 @@
                         <button class="btn btn-danger" id="${ItemId}" onclick="DeleteItem(${i})">Delete</button>
                     </td>
                 `;
+            totolItem += parseInt(itemListArray[i].quantity);
+            totolAmount += parseInt(itemListArray[i].amount);
+            totolFinalAmount += parseInt(itemListArray[i].TotalAmount);
             tbody.append(tr);
         }
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td></td>
+                        <td colspan="1">Total Items </td><td>${totolItem}</td><td>${totolAmount}</td><td>${totolFinalAmount}</td>`
+        tbody.append(tr);
         return tbody;
     }
     function DeleteItem(e) {

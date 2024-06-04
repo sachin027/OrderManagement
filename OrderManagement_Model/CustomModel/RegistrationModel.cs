@@ -15,7 +15,7 @@ namespace OrderManagement_Model.CustomModel
         [Required(ErrorMessage ="Username Required")]
         [MaxLength(8,ErrorMessage ="Username length greater than 8")]
         [MinLength(6,ErrorMessage ="Username length less than 6")]
-        [RegularExpression(@"^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$" , ErrorMessage = "Contain alphabets and numbers")]
+        //[RegularExpression(@"^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$" , ErrorMessage = "Contain alphabets and numbers")]
         public string Username { get; set; }
 
         [Required(ErrorMessage ="FirstName Required")]

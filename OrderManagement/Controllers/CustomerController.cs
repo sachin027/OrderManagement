@@ -18,9 +18,17 @@ namespace OrderManagement.Controllers
         // GET: User
         public ActionResult CustomerDashboard()
         {
-            return View();
+            RegistrationModel profile = customerInterface.GetUserProfile(38);
+            return View(profile);
         }
 
+        [HttpPost]
+        public ActionResult CustomerDashboard(RegistrationModel registrationModel)
+        {
+
+            customerInterface.UpdateUserProfile(registrationModel);
+            return RedirectToAction("CustomerDashboard");
+        }
         public ActionResult AddOrder()
         {
             ViewBag.ItemList = customerInterface.GetItemList();

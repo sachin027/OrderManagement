@@ -10,5 +10,7 @@ namespace OrderManagement_Repository.Interface
     public interface ICustomerInterface
     {
         List<ItemModel> GetItemList();
+        RegistrationModel GetUserProfile(int userId);
+        void UpdateUserProfile(RegistrationModel registrationModel);
     }
 }
